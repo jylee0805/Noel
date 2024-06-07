@@ -1,0 +1,348 @@
+@import "reset";
+@import "mixin";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body{
+    font-family: "Noto Sans", sans-serif;
+}
+
+.header{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 14px 10px;
+    @include w768{
+        justify-content: space-between;
+    }
+    @include w375{
+        padding: 12px;
+    }
+    &__logo{
+        display: block;
+        height: 40px;
+        width: 100px;
+        text-indent: 101%;
+        white-space: nowrap;
+        overflow:hidden;
+        background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/logo.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+    }
+    &__menu{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        display: flex;
+        column-gap: 40px;
+        @include w768{
+            position: relative;
+            transform: translate(0);
+            left: 0;
+            column-gap: 20px;
+        }
+        @include w576{
+            display: none;
+        }
+    }
+    &__menuLink{
+        font-size: 16px;
+        padding: 4px 8px;
+        text-decoration: none;
+        color: black;
+        line-height: 1.5;
+        border-image-source: radial-gradient(55% 60%,transparent 0px,transparent 100%,transparent 100%);
+        border-image-slice: 1;
+        border-width: 1px;
+        border-style: solid;
+        &:hover{
+            border-image-source: radial-gradient(55% 60%,transparent 0px,transparent 100%,#919191 100%);
+            font-weight: 700;
+        }
+
+    }
+    &__btn{
+        display: none;
+        @include w576{
+            display: block;
+            border: none;
+            background: transparent;
+            position: absolute;
+            right: 0;
+        }
+        span{
+            font-size: 40px;
+        }
+        .close{
+            display: none;
+        }
+        
+    }
+
+}
+
+.show{
+    display: block;
+    width: 100%;
+    position: absolute;
+    top:55px ;
+    text-align: center;
+    background: #fff;
+    li{
+        padding: 10px 0;
+    }
+}
+.banner{
+    text-align: center;
+    margin: 0 auto;
+    padding: 80px 10%;
+    background: #FAFAFA;
+    @include w768{
+        padding: 80px 5%;
+    }
+    &__slogan{
+        
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        
+        @include w576{
+            display: block;
+            margin-bottom: 40px;
+        }
+    }
+    &__quote{
+        width: 72px;
+        height: 72px;
+        align-self: flex-start;
+       
+        &--right{
+            align-self: flex-end;
+            @include w375{
+                display: none;
+            }
+        }
+    }
+    &__title{
+        font-size: 24px;
+        line-height: 2;
+        @include w768{
+            font-size: 22px;
+        }  
+        @include w576{
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+    }
+    &__mark{
+        background-image:url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/mark.png?raw=true") ;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+    &__introduce{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        column-gap: 40px;
+        line-height: 1.5;
+        
+        @include w576{
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+    &__introduceItem{
+        width: 30%;
+        @include w768{
+            width: 40%;
+        }
+        @include w576{
+            margin-bottom: 20px;
+            width: 100%;
+        }
+    }
+    &__subtitle{
+        margin-bottom: 8px;
+        position: relative;
+        &::after{
+            content: ""; 
+            height: 2px;
+            width: 20px;
+            background: #c1c1c1;
+            margin: 4px auto;
+            display: block;
+        }
+    }
+}
+
+.content{
+    margin: 0 auto;
+    padding: 120px 0;
+    width: 70%;
+
+    @include w375{
+        width: 100%;
+        padding:0 12px;
+
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 24px;
+        row-gap: 80px;
+        margin-bottom: 72px;
+    }
+    &__item{
+        width: 48%;
+        padding: 19px 0;
+        @include w768{
+            width: 100%;
+            padding:0;
+        }
+        @include w375{
+            width: 100%;
+            padding:0;
+        }
+    }
+    &__img{
+        border-radius:8px ;
+        margin-bottom: 16px;
+    }
+    &__title{
+        font-size: 28px;
+        line-height: 1.2;
+        color: #3b3b3b;
+        font-weight: 700;
+        margin-bottom: 8px;
+        @include w375{
+            font-size: 20px;
+            padding: 0 16px;
+        }
+    }
+    &__subtitle{
+        line-height: 1.5;
+        color: #919191;
+        margin-bottom: 24px;
+        @include w375{
+           
+            padding: 0 16px;
+        }
+    }
+    &__tag{
+        display: flex;
+        column-gap: 16px;
+        @include w375{
+            column-gap: 8px;
+            padding-left: 16px;
+        }
+    }
+    &__tagItem{
+        color: #3b3b3b;
+        background: #f1f1f1;
+        border-radius: 16px;
+        padding: 4px 12px;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+    &__page{
+        display: flex;
+        justify-content: center;
+        column-gap: 16px;
+        @include w375{
+            margin-bottom: 80px;
+        }
+    }
+    &__pageLink{
+        text-decoration: none;
+        color: #3b3b3b;
+        font-size: 24px;
+        line-height: 1.5;
+        padding: 2px 13px;
+        border-radius: 4px;
+        &--now{
+            background: #000;
+            color: #fff;
+        }
+    }
+}
+.footer{
+    background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true");
+    background-size: cover;
+    padding: 80px 34px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    @include w576{
+        background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true");
+        padding: 40px 30px;
+        display: block;
+    }
+    @include w375{
+        background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true");
+        padding: 40px 12px;
+        display: block;
+    }
+    &__logo{
+        display: block;
+        height: 34px;
+        
+        text-indent: 101%;
+        white-space: nowrap;
+        overflow:hidden;
+        background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/logo.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-bottom: 24px;
+        @include w375{
+            height: 54px;
+            width: 120px;
+            margin: 0 auto;
+            margin-bottom: 24px;
+        }
+    }
+    &__text{
+        font-size: 20px;
+        line-height: 1.5;
+        color: #3b3b3b;
+        margin: 0 5px 24px 0;
+        @include w375{
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    }
+    &__mail{
+        line-height: 1.2;
+        color: #919191;
+        font-size: 20px;
+        text-decoration: none;
+    }
+    &__link{
+        display: block;
+        text-decoration: none;
+        color: #3b3b3b;
+        padding: 21px 59px 21px 88px;
+        border: 1px solid #c1c1c1;
+        margin-bottom: 24px;
+        border-radius: 8px;
+        background-repeat: no-repeat;
+        background-position:24px ;
+        &--form{
+            background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/list.svg");
+        }
+        &--ig{
+            background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/instagram.svg");
+        }
+        &--fb{
+            background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/facebook.svg");
+        }
+        &--select{
+            color: #fff;
+            background-color: #000;
+        }
+    }
+
+}
